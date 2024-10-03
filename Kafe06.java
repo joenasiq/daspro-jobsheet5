@@ -7,9 +7,9 @@ public class Kafe06 {
         int jumlah;
         boolean keanggotaan;
         
-        System.out.print("Masukkan menu: ");
+        System.out.print("Masukkan menu (kopi - teh - coklat): ");
         menu = sc.nextLine();
-        System.out.print("Masukkan ukuran cup: ");
+        System.out.print("Masukkan ukuran cup (S - M - L): ");
         ukuranCup = sc.next().charAt(0);
         System.out.print("Masukkan jumlah: ");
         jumlah = sc.nextInt();
