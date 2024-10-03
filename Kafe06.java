@@ -30,7 +30,8 @@ public class Kafe06 {
         }
 
         double totalHarga = hargaMenu * jumlah;
-        switch (ukuranCup) {
+        boolean ukuranValid = true;
+        switch (Character.toUpperCase(ukuranCup)) {
             case 'S':
                 break;
             case 'M':
@@ -39,13 +40,20 @@ public class Kafe06 {
             case 'L':
                 totalHarga += 0.4 * totalHarga;
                 break;
+            default:
+                System.out.println("Ukuran cup " + ukuranCup + " tidak tersedia.");
+                ukuranValid = false;
             
         }
 
-        double diskon = keanggotaan ? 0 : 0.1;
-        double nominalBayar = totalHarga - (diskon * totalHarga);
+        if (ukuranValid) {
+            double diskon = keanggotaan ? 0.1 : 0;
+            double nominalBayar = totalHarga - (diskon * totalHarga);
 
-        System.out.println("item pembelian: " + jumlah + " " + menu + " dengan ukuran cup " + ukuranCup);
-        System.out.println("nominal bayar: " + nominalBayar);
+            System.out.println("Item pembelian: " + jumlah + " " + menu + " dengan ukuran cup " + ukuranCup);
+            System.out.println("Nominal bayar: " + nominalBayar);
+        } else {
+            System.out.println("Transaksi dibatalkan karena ukuran cup tidak valid.");
+        }
     }
 }
